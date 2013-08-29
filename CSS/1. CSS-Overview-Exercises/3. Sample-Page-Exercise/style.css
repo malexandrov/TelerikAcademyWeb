@@ -1,0 +1,44 @@
+body{
+	background:#B0B0B0
+	}
+header{ 
+	font-size: 25px;
+	color:#FFC;
+	text-align: center;
+	}
+	
+ul li {
+	list-style-type: none;
+	}
+li a {
+	font-weight:bold; 
+	color:white;
+	text-decoration: none;
+	}
+li:last-child {
+	color:white;
+	text-decoration: underline;
+	}
+.current {
+	background-color: #D3D3D3;
+	}
+	
+section  header {
+	text-align: left;
+	}
+section  p {
+	font-size: 20px;
+	}
+section  footer p {
+	text-align: left; 
+	font-size: 16px;
+	}
+section a {
+	text-decoration:none;
+	color:black
+	}
+	
+	footer {
+	text-align: center;
+	font-size: 20px;
+	}

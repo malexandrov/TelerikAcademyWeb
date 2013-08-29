@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	
+</head>
+<body>
+	<div id="inputdiv">
+		<div id="inputbutton">
+			<a href="#" onclick="onFindBiggerButtonClick()">Calc Distance</a>
+		</div>
+	</div>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>														 
+
+		function onFindBiggerButtonClick() {
+			var PointA = new Point(5,6);
+			var PointB = new Point(12,8);
+			jsConsole.writeLine("Point A: " + PointA.toString());
+			jsConsole.writeLine("Point B: " + PointB.toString());
+
+			var LineAB = new Line(PointA, PointB);
+			jsConsole.writeLine("Line AB: " + LineAB.toString());
+
+			var dist = Distance(PointA, PointB);
+			jsConsole.writeLine("Distance between Point A and B: " + dist);
+			
+			var PointC = new Point(8,10);
+			var LineBC = new Line(PointB, PointC);
+            var LineAC = new Line(PointA, PointC);
+			jsConsole.writeLine("Line BC: " + LineBC.toString());
+			jsConsole.writeLine("Line AC: " + LineAC.toString());
+
+			if(canMakeTriangle)
+			{			
+				jsConsole.writeLine("Line AB,BC,AC can make a triangular.");
+			}
+			else
+			{			
+				jsConsole.writeLine("Line AB,BC,AC can NOT make a triangular.");
+			}
+		}
+
+		function Point(x,y){
+			return {
+				x:x,
+				y:y,
+				toString: function () { return "P(" + this.x + "," + this.y + ");"}
+			}
+		}
+
+		function Line(p1,p2){
+			return {
+				startPoint:p1,
+				endPoint:p2,
+				getLength: Distance(p1,p2),
+				toString: function () { 
+					return "L(P1(" + this.startPoint.x + "," + this.startPoint.y + "),P2(" + this.endPoint.x + "," + this.endPoint.y + "));"
+					}
+			}
+		}
+
+		function Distance(start,end){
+			return Math.sqrt((end.x - start.x) * (end.x - start.x) + (end.y - start.y) * (end.y - start.y));
+		}
+
+		function canMakeTriangle(l1, l2, l3) {
+            var a = l1.getLength();
+            var b = l2.getLength();
+            var c = l3.getLength();
+			var result = a + b > c && a + c > b && b + c > a;
+            return result;
+        }
+		
+		
+		
+	</script>			  
+</body>
+</html>

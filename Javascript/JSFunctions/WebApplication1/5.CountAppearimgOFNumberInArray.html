@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	
+</head>
+<body>
+	<div id="inputdiv">
+		<div class="input">
+			<label for="tb-first">Insert array separated by ',': </label>
+			<input type="text" id="tb-first"/>
+		</div>	
+		<div class="input">
+			<label for="tb-second">Insert number: </label>
+			<input type="text" id="tb-second"/>
+		</div>
+		<div id="inputbutton">
+			<a href="#" onclick="onCountButtonClick()">Count appears of number</a>
+		</div>
+	</div>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>														 
+
+		function onCountButtonClick() {
+			var arr = jsConsole.readNumbersArray("#tb-first", ',');
+			var num = jsConsole.readFloat("#tb-second");
+			var repeatedNumber = countAppearimgOFNumber(arr, num);
+			jsConsole.writeLine("Number " + num + " is repeating " + repeatedNumber + " times");
+		}	
+		function countAppearimgOFNumber(arr, num) {
+        var counter = 0;
+		var i;
+        for (i = 0; i < arr.length; i++)
+        {
+            if (arr[i] == num)
+            {
+                counter++;
+            }
+        }
+        return counter;
+    }
+	</script>			  
+</body>
+</html>

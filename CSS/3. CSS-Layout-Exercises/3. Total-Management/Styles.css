@@ -1,0 +1,64 @@
+﻿        body {
+            width: 680px;
+            background: #3B3B3B;
+            border: 1px solid #F8D612;
+            border-radius: 10px;
+            color: #A9A9A9;
+            font: 14px/1.2 Verdana, sans-serif;
+
+        }
+        fieldset {
+            border: none; 
+
+        }
+        .login {
+            padding: 20px 10px 20px 55px;
+            background: url(monitor.png) no-repeat 16px 9px;
+            background-color: #343434;
+            color: #fff;
+        }
+
+        .login legend, .login input, .login button {
+            float: left;
+            margin-left: 15px;
+            }
+
+        input {
+                border-radius:0;
+                border: 1px solid #3892b5;
+                height: 20px;
+                }
+
+
+        .login legend {
+            text-transform: lowercase;
+            font-size: 18px;
+        }
+
+        .login input { 
+            padding-left: 10px; 
+
+        }
+
+        .go {
+            padding: 5px 15px;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            background: #ff7b7b;
+            box-shadow: inset 0px -15px 5px #dc070b;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .article { padding: 0 30px 15px 10px;  }
+
+        .article h1 {
+            color: #F8D612;
+            text-transform: lowercase;
+            font-weight: normal;
+        }
+
+        .article strong {
+            color: #F8F8F8;
+            font-weight: normal;
+        }

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Check if digit is 7</title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="input-field"> 
+        <label for="numberField"> Enter number: </label>
+        <input type="text" id="numberField" />
+    </div>
+    <div id="button">
+        <a href="#" onclick="onCheckThirdDigitClick()">Check!</a>
+    </div>
+    <div id="console">
+    </div>
+
+    <script src="js-console.js">	
+    </script>
+
+    <script>
+        function onCheckThirdDigitClick() {
+            var number = jsConsole.readFloat("#numberField");
+			var tempNum = parseInt(number / 100);
+
+            if (tempNum % 10 == 7) {
+                jsConsole.writeLine("The third digit is 7");
+            }
+
+            else {
+                jsConsole.writeLine("The third digit is not 7");
+            }
+        }
+
+    </script>
+</body>
+</html>

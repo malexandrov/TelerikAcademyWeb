@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	
+</head>
+<body>
+	<div id="inputdiv">
+		<div id="inputbutton">
+			<a href="#" onclick="onCountButtonClick()">Count elements on the page</a>
+		</div>
+        <div class="input">
+			<label for="tb-second">Insert element name (ex. div): </label>
+			<input type="text" id="tb-second"/>
+		</div>
+	</div>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>														 
+
+		function onCountButtonClick() {
+		    var elementType = jsConsole.read("#tb-second");
+			var divCount = countElements(elementType);
+			jsConsole.writeLine("Count of " + elementType + "s on page is " + divCount);
+		}	
+		function countElements(elementType) {
+		var arr = document.getElementsByTagName(elementType);
+        return arr.length;
+    }
+	</script>			  
+</body>
+</html>

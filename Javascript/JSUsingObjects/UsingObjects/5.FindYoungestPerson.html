@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	
+</head>
+<body>
+	<div id="inputdiv">
+		<div id="inputbutton">
+			<a href="#" onclick="onFindButtonClick()">Find Youngest Person</a>
+		</div>
+	</div>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>														 
+
+		function onFindButtonClick() {
+			var People = [
+                new Person("Kristian", "Milev",32),           
+                new Person("Damian", "Stoyanov"  , 42),  
+				new Person("Ivan", "Stoyanov", 24),
+                new Person("Kristian", "Milev",26),  
+				new Person("Diyana", "Dobreva", 33),
+                new Person("Liubomir", "Slavchev", 28),
+                new Person("Damian", "Apostolov"  , 52)];
+
+			for(var p in People)
+			{			
+				jsConsole.writeLine(People[p].toString());
+			}
+			var young = FindYoungestPerson(People);			
+			jsConsole.writeLine(" ");
+			jsConsole.writeLine("Youngest person is: " + young.toString());
+		}					
+
+		function Person(firstName, secondName, age){
+			return {
+				firstName:firstName,
+				secondName:secondName,
+				age: age,
+				toString: function () { 
+					return this.firstName + " " + this.secondName + " at " + this.age + " ages."
+					}
+			}
+		}
+		function FindYoungestPerson(People)
+		{
+			if (People.length === 0) return null;
+			if (People.length === 1) return People[0];
+			People.sort(function (a,b)
+			{ 
+				if (a.age < b.age){
+				return -1;
+				}
+				if (a.age > b.age){
+				return 1;
+				}
+			  return 0;
+			});
+			return People[0];
+		}
+		
+	</script>			  
+</body>
+</html>

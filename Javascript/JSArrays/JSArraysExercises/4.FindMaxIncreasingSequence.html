@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Write a script that finds the maximal increasing sequence  in an array.</title>
+    <link href="styles\js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="button">
+        <a href="#" onclick="onInitializeArray()">Print array Max increasing sequence</a>
+    </div>
+    <div id="console">
+    </div>
+
+    <script src="scripts\js-console.js">	
+    </script>
+
+    <script>
+        function onInitializeArray() {
+            var intArray1 = [1, 1, 2, 2, 2, 3, 4, 5, 6];
+            findMaxSequence(intArray1);
+
+            function findMaxSequence(myArray) {
+				var numIndex = 0;
+				var currentLength = 1;
+				var bestLength = 1;
+
+				for (var i = 1; i < myArray.length; i++)
+				{
+					currentLength = myArray[i] - myArray[i-1] == 1 ? currentLength + 1 : 1;
+
+					if (currentLength > bestLength)
+					{
+						bestLength = currentLength;
+						numIndex = i - currentLength + 1;
+					}
+				}
+
+				for (var i = 0; i < bestLength; i++)
+				{
+					jsConsole.write(myArray[numIndex + i] + " ");
+				}
+            }
+        }
+
+    </script>
+</body>
+</html>

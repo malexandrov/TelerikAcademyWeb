@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Find the MAX and MIN numbers from a sequence.</title>
+    <link href="styles\js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="button">
+        <a href="#" onclick="onPrintMaxMinNumbers()">Calculate!</a>
+    </div>
+    <div id="console">
+    </div>
+
+    <script src="scripts\js-console.js">	
+    </script>
+
+    <script>
+        function onPrintMaxMinNumbers() {
+			var myNumbers = new Array(5,-6,0,25,14,10,20,-13,1);
+			var minNum = myNumbers[0];
+			var maxNum = myNumbers[0];
+
+			for (var i = 0; i < myNumbers.length; i++) {
+			jsConsole.write(myNumbers[i] + "  ");
+			}
+
+            for (var i = 0; i < myNumbers.length; i++) {
+					if ( maxNum < myNumbers[i]) {
+						maxNum = myNumbers[i];					
+					}
+
+					if ( minNum > myNumbers[i]) {
+						minNum = myNumbers[i];					
+					}
+            }
+			
+			jsConsole.writeLine(" ");
+			jsConsole.writeLine("Biggest number: " + maxNum);
+			jsConsole.writeLine("Smallest number: " + minNum);
+        }
+
+    </script>
+</body>
+</html>

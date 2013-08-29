@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	
+</head>
+<body>
+	<div id="inputdiv">
+		<div class="input">
+			<label for="tb-first">Insert array separated by ',': </label>
+			<input type="text" id="tb-first"/>
+		</div>							  
+		<div class="input">		
+			<label for="tb-second">Number for remove: </label>
+			<input type="text" id="tb-second"/>
+		</div>
+		<div id="inputbutton">
+			<a href="#" onclick="onFindBiggerButtonClick()">Remove number</a>
+		</div>
+	</div>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>														 
+
+		function onFindBiggerButtonClick() {
+			var arr = jsConsole.readArray("#tb-first", ',');
+			var number = jsConsole.readFloat("#tb-second");
+			var newArr = arr.remove(number);
+
+			jsConsole.writeLine("New array is: " + newArr.join(','));
+		}					
+
+		(function () {
+            if (!Array.prototype.remove) {
+                Array.prototype.remove = function (value) {
+                    if (this == null) {
+                        throw new TypeError();
+                    }
+
+                    var resultArr = [];
+
+                    var size = this.length;
+                    for (var i = 0; i < size; i++) {
+                        if (Number(this[i]) !== value) {
+                            resultArr.push(this[i]);
+                        }
+                    }
+
+                    return resultArr;
+                }
+            }
+        })();
+		
+	</script>			  
+</body>
+</html>

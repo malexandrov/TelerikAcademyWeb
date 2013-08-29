@@ -1,0 +1,58 @@
+﻿body {
+            margin: 15px;
+            font: 13px/1.2 Verdana, sans-serif;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+
+        article {
+            padding: 15px;
+            width: 425px;
+            background: #eee;
+            border: 1px solid gray;
+            border-radius: 10px;
+        }
+
+        section {
+            overflow: hidden;
+            margin:  40px 0 15px 0;
+            padding: 20px;
+            border: 1px solid gray;
+            background: #fff;
+        }
+
+        section img {
+            float: left;
+            margin-right: 20px;
+            border: 1px solid gray;
+        }
+
+        section p { 
+            margin: 0; 
+
+        }
+
+        .buttons { 
+            text-align: right; 
+
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 0 10px 0 20px;
+            color: #fff;
+            text-decoration: none;
+            line-height: 1.5em;
+        }
+        .button {
+            border-top: 2px solid #E38382;
+            border-right: 2px solid #650011;
+            border-bottom: 2px solid #650011;
+            border-left: 2px solid #9C2820;
+            background: #db0000;
+            box-shadow: inset 15px 0 0 #8A0000;
+        }

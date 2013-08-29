@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Find the lexicographycally largest and smallest property in document, window and navigator objects.</title>
+    <link href="styles\js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="button">
+        <a href="#" onclick="onLexicographycallyCompare()">Calculate!</a>
+    </div>
+    <div id="console">
+    </div>
+
+    <script src="scripts\js-console.js">	
+    </script>
+
+    <script>
+        LexicographycallyCompare(document);
+        LexicographycallyCompare(window);
+        LexicographycallyCompare(navigator);
+
+        function LexicographycallyCompare(Object) {
+            var min = 'z';
+            var max = 'a';
+
+            for (var property in Object) {
+                if (property<min) {
+                    min = property;
+                }
+            }
+            jsConsole.writeLine("Smallest lexicographycally property in: " + Object + " is: " + min);
+
+            for (var property in Object) {
+                if (property > max) {
+                    max = property;
+                }
+            }
+            jsConsole.writeLine("Biggest lexicographycally property in: " + Object + " is: " + max);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+th,tr,td,table,div,p,body,div
+{
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+    font-family: script;
+    src: url('Edwardian Script ITC.ttf');
+	}
+	
+body {
+	font: large consolas;
+	color: #0094ff;
+	}
+	
+p:first-line{
+	font-weight: bold;
+	}
+	
+p:first-letter{
+	font: 270% Edwardian Script ITC;
+	}
+
+
+

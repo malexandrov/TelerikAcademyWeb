@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	
+</head>
+<body>
+	<div id="inputdiv">
+		<div id="inputbutton">
+			<a href="#" onclick="onFindButtonClick()">Find Youngest Person</a>
+		</div>
+	</div>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>														 
+
+		function onFindButtonClick() {
+			var People = [
+                new Person("Kristian", "Milev",32),           
+                new Person("Damian", "Stoyanov"  , 42),  
+				new Person("Ivan", "Stoyanov", 24),
+                new Person("Kristian", "Milev",26),  
+				new Person("Diyana", "Dobreva", 33),
+                new Person("Liubomir", "Slavchev", 28),
+                new Person("Damian", "Apostolov"  , 52)];
+
+			for(var p in People)
+			{			
+				jsConsole.writeLine(People[p].toString());
+			}
+			var groups = group(People, "firstName");
+
+			jsConsole.writeLine(" ");
+            for (var entry in groups) {
+                jsConsole.writeLine("Group " + entry + " - " + groups[entry]);
+            }		
+		}					
+
+		function Person(firstName, secondName, age){
+			return {
+				firstName:firstName,
+				secondName:secondName,
+				age: age,
+				toString: function () { 
+					return this.firstName + " " + this.secondName + " at " + this.age + " ages."
+					}
+			}
+		}
+		function group(people, prop) {
+            switch (prop) {
+                case "firstName":
+                case "lastName":
+                case "age":
+                    {
+                        var groups = {};
+
+                        people.map(function (p) {
+                            if (!groups[p[prop]])
+                                groups[p[prop]] = new Array();
+                            groups[p[prop]].push(p);
+                        });
+
+                        return groups;
+                    }
+                default:
+                    throw new Error("No such property in Person.");
+            }
+        }
+		
+	</script>			  
+</body>
+</html>

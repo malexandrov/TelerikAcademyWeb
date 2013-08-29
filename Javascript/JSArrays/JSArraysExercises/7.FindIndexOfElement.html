@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Write a script that finds the index of element in an array.</title>
+    <link href="styles\js-console.css" rel="stylesheet" />
+</head>
+<body>
+     <div class="input-field"> 
+        <label for="numberField"> Enter number to search: </label>
+        <input type="text" id="numberField" />
+    </div>
+    <div id="button">
+        <a href="#" onclick="onInitializeArray()">Find Number</a>
+    </div>
+    <div id="console">
+    </div>
+
+    <script src="scripts\js-console.js">	
+    </script>
+
+    <script>
+        function onInitializeArray() {
+            var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            var key = jsConsole.readInteger("#numberField");
+            jsConsole.writeLine(myArray);
+
+            binarySearch(myArray, key);
+
+            function binarySearch(inputArray, givenNum) {
+                var startOfSearch = 0;
+                var endOfSearch = myArray.length - 1;
+                var half;
+
+                while (startOfSearch <= endOfSearch) {
+                    half = parseInt((startOfSearch + endOfSearch) / 2);
+
+                    if (myArray[half] < givenNum) {
+                        startOfSearch = half + 1;
+                    }
+
+                    if (myArray[half] > givenNum) {
+                        endOfSearch = half - 1;
+                    }
+
+                    if (myArray[half] == givenNum) {
+                        jsConsole.writeLine("Index of the given element is: " + half);
+                        break;
+                    }
+                }
+            }
+        }
+        
+    </script>
+</body>
+</html>

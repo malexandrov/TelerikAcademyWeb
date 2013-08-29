@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Calculate rectangle area</title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="input-field"> 
+        <label for="witdhField"> Enter width: </label>
+        <input type="text" id="witdhField" />
+        <label for="heightField"> Enter height: </label>
+        <input type="text" id="heightField" />
+    </div>
+    <div id="button">
+        <a href="#" onclick="onCalculateClick()">Calculate!</a>
+    </div>
+    <div id="console">
+    </div>
+
+    <script src="js-console.js">	
+    </script>
+
+    <script>
+        function onCalculateClick() {
+            var width = jsConsole.readFloat("#witdhField");
+			var height = jsConsole.readFloat("#heightField");
+			var area = width * height;
+            jsConsole.writeLine("The area is:" + area);
+        }
+
+    </script>
+</body>
+</html>

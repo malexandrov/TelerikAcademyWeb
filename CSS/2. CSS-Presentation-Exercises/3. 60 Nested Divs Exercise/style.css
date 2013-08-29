@@ -1,0 +1,18 @@
+th,tr,td,table,div,p,body,div
+{
+	margin: 10;
+	padding: 10;
+}
+
+body {
+		width: 90%;
+		/*border: 1px solid red;
+		border-radius: 15px;*/
+}
+		
+div {
+	background: black;
+	border-radius: 60px;
+	border: 1px solid red;
+	padding-right: 3%;
+}

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Allocate an array of 20 integers and initialize its elements with index multiplied by 5.</title>
+    <link href="styles\js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="button">
+        <a href="#" onclick="onInitializeArray()">Print Array</a>
+    </div>
+    <div id="console">
+    </div>
+
+    <script src="scripts\js-console.js">	
+    </script>
+
+    <script>
+        function onInitializeArray() {
+            var arrayOfInt = new Array(20);
+
+            for (var i = 0; i < arrayOfInt.length; i++) {
+                arrayOfInt[i] = 5 * i;
+            }
+            jsConsole.writeLine(arrayOfInt);
+        }
+
+    </script>
+</body>
+</html>

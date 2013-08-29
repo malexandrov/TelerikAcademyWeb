@@ -1,0 +1,19 @@
+th,tr,td,table,div,p,body,div
+{
+	margin: 0;
+	padding: 0;
+}
+
+body {font-family: sans-serif;}
+table, th, td {border:none; background-color:gray; color:white;}
+table {width: 350pt;}
+thead {font-size: 25px; text-align:left;}
+td, th, p {padding: 0 10px 10px 0px; vertical-align: top;}
+
+#firstcol {width:140px;}
+
+.link {text-decoration:none; color:#FCFCDC; }
+.white-text {font-style:italic;}
+.gray-text {color:lightgray;	font-weight: normal;}
+.red-text {color:red;}
+.orange-text {color:orange;}

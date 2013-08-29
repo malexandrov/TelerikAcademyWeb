@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+	<link href="styles/js-console.css" rel="stylesheet" />
+	
+</head>
+<body>
+	<div id="inputdiv">
+		<div class="input">
+			<label for="tb-first">Insert number: </label>
+			<input type="text" id="tb-first"/>
+		</div>	
+		<div id="inputbutton">
+			<a href="#" onclick="onLastDigitTranslateClick()">Translate Last Digit</a>
+		</div>
+	</div>
+	<div id="console">
+	</div>
+	<script src="scripts/js-console.js">	  
+	</script>		  
+	<script>														 
+
+	    function onLastDigitTranslateClick() {
+	        var str = jsConsole.read("#tb-first");
+	        jsConsole.writeLine(translDigit(str));
+	    }
+
+	    function translDigit(str){
+	        switch (str[str.length - 1]) {
+	            case "0": return "Zero";
+	            case "1": return "One";
+	            case "2": return "Two";
+	            case "3": return "Three";
+	            case "4": return "Four";
+	            case "5": return "Five";   
+	            case "6": return "Six";
+	            case "7": return "Seven";
+	            case "8": return "Eight";
+	            case "9": return "Nine";
+	            default: return "Last symbol is not a digit";
+            }
+	    }
+
+	</script>			  
+</body>
+</html>

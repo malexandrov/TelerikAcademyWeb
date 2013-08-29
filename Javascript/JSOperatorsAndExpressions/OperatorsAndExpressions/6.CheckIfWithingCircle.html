@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Check if given print is within circle</title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="input-field"> 
+        <label for="numberX"> Enter print X: </label>
+        <input type="text" id="numberX" />
+        <label for="numberY"> Enter print Y: </label>
+        <input type="text" id="numberY" />
+    </div>
+    <div id="button">
+        <a href="#" onclick="onCheckClick()">Check!</a>
+    </div>
+    <div id="console">
+    </div>
+
+    <script src="js-console.js">	
+    </script>
+
+    <script>
+        function onCheckClick() {
+            var numX = jsConsole.readInteger("#numberX");
+            var numY = jsConsole.readInteger("#numberY");
+
+            if ((-5 < numX && numX < 5) && (-5 < numY && numY < 5)) {
+				jsConsole.writeLine("Within circle");
+			}
+			else {
+				jsConsole.writeLine("Not in circle");
+			}
+		}
+
+    </script>
+</body>
+</html>

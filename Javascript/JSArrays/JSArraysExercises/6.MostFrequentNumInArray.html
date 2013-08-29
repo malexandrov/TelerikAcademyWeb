@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Write a script that finds the most frequent number in an array.</title>
+    <link href="styles\js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="button">
+        <a href="#" onclick="onInitializeArray()">Find Number</a>
+    </div>
+    <div id="console">
+    </div>
+
+    <script src="scripts\js-console.js">	
+    </script>
+
+    <script>
+        function onInitializeArray() {
+            var myArray = [1, 3, 3, 2, 4, 0, 3, 7];
+
+            jsConsole.writeLine(myArray);
+
+            mostFrequentNum(myArray);
+
+            function mostFrequentNum(inputArray) {
+                var tempValue = 0;
+                var bestFrequency = 0;
+                var tempFrequency = 1;
+                var bestValue = 0;
+
+                for (var i = 0; i < inputArray.length - 1; i++) {
+                    tempValue = inputArray[i];
+                    for (var j = 1; j < inputArray.length; j++) {
+                        if (tempValue == inputArray[j]) {
+                            frequentValue = tempValue;
+                            tempFrequency++;
+
+                            if (tempFrequency > bestFrequency) {
+                                bestFrequency = tempFrequency;
+                                bestValue = tempValue;
+                            }
+                        }
+                    }
+                    tempFrequency = 0;
+                }
+                jsConsole.writeLine("The most frequent value is " + bestValue + " repeated " + bestFrequency + " times.");
+            }
+        }
+    </script>
+</body>
+</html>

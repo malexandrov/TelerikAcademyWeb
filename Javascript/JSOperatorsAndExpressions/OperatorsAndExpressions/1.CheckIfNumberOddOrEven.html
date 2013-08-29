@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Check if given integer is odd or even</title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="input-field"> 
+        <label for="numberField"> Enter int number: </label>
+        <input type="text" id="numberField" />
+    </div>
+    <div id="button">
+        <a href="#" onclick="onFindOddOrEvenClick()">Check if odd or even</a>
+    </div>
+    <div id="console">
+    </div>
+
+    <script src="js-console.js">	
+    </script>
+
+    <script>
+        function onFindOddOrEvenClick() {
+            var intNumber = jsConsole.readFloat("#numberField");
+
+            if (intNumber % 2 == 0) {
+                jsConsole.writeLine("The number is even");
+            }
+
+            else {
+                jsConsole.writeLine("The number is odd");
+            }
+        }
+
+    </script>
+</body>
+</html>

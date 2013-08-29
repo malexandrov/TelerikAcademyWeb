@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Write a script that finds the maximal sequence of equal elements in an array.</title>
+    <link href="styles\js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="button">
+        <a href="#" onclick="onInitializeArray()">Print array Max sequence</a>
+    </div>
+    <div id="console">
+    </div>
+
+    <script src="scripts\js-console.js">	
+    </script>
+
+    <script>
+        function onInitializeArray() {
+            var charArray1 = ['a', 'b', 'c', 'c', 'e', 'g', 'i', 'i', 'i'];
+            var intArray1 = [1, 1, 2, 2, 2, 2, 4, 5, 6];
+            findMaxSequence(charArray1);
+            findMaxSequence(intArray1);
+
+            function findMaxSequence(array1) {
+
+                var maxSequence = 1;
+                var maxElement = array1[0];
+                for (var i = 0; i < array1.length-1; i++) {
+                    var currElem = array1[i];
+                    var currSequence = 1;
+
+                    for (var j = i + 1; j < array1.length; j++) {
+                        
+                        if (currElem == array1[j]) {
+                            currSequence++;
+                        }
+                    }
+
+                    if (currSequence > maxSequence) {
+                        maxSequence = currSequence;
+                        maxElement = currElem;
+                    }
+                }
+                jsConsole.write("[");
+                for (var i = 0; i < maxSequence-1; i++) {
+                    jsConsole.write(maxElement + ", ");
+                }
+                jsConsole.writeLine(maxElement + "]");
+            }
+        }
+
+    </script>
+</body>
+</html>

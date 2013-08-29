@@ -1,0 +1,42 @@
+th,tr,td,table,div,p,body,div
+{
+	margin: 0;
+	padding: 0;
+}
+
+table, td, th
+{
+	border-collapse: collapse;
+	padding: 7px 50px 7px 7px;
+	margin:  10px;
+}
+#fixed{padding: 7px 7px 7px 7px;}
+
+body { font-family: sans-serif; }
+
+img { margin-right:10px; }
+
+tr:nth-child(2n)
+{
+	background-color: #ececd8;
+}
+tr:nth-child(4) td
+{
+	border-bottom: 2px solid #CC9;
+}
+td
+{
+	border-left: 2px solid #CC9;
+	border-right: 2px solid #CC9;
+}
+th
+{
+	background-color: #56b906;
+	color: #FFF;
+	font-weight: normal;
+	text-align: left;
+	border: 2px solid #060;
+}
+
+
+

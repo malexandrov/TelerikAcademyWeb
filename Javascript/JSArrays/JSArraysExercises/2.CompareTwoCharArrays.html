@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Write a script that compares two char arrays lexicographycally.</title>
+    <link href="styles\js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="button">
+        <a href="#" onclick="onInitializeArray()">Print Array</a>
+    </div>
+    <div id="console">
+    </div>
+
+    <script src="scripts\js-console.js">	
+    </script>
+
+    <script>
+        function onInitializeArray() {
+            var charArray1 = ['a', 'b', 'c', 'd',  'f', 'g', 'h', 'i', 'j'];
+            var charArray2 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
+
+            compareCharArrays(charArray1, charArray2);
+
+            function compareCharArrays(array1, array2) {
+
+                var areEqual = true;
+                if (array1.length == array2.length) {
+                    for (var i = 0; i < array1.length; i++) {
+                        if (array1[i] != array2[i]) {
+                            areEqual = false;
+                            break;
+                        }                    
+                    }
+                    if (areEqual) {
+                        jsConsole.writeLine("The arrays " + array1 + " and " + array2 + " are equal!");
+                    }
+                    else {
+                        jsConsole.writeLine("The arrays " + array1 + " and " + array2 + " are not equal!");
+                    }
+                }
+                else {
+                    jsConsole.writeLine("The arrays " + array1 + " and " + array2 + " are not equal by length!");
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

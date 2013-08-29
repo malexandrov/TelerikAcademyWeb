@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Check If Number Is Prime</title>
+    <link href="js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="input-field"> 
+        <label for="numberField"> Enter number: </label>
+        <input type="text" id="numberField" />
+    </div>
+    <div id="button">
+        <a href="#" onclick="onPrimeCheckClick()">Check!</a>
+    </div>
+    <div id="console">
+    </div>
+
+    <script src="js-console.js">	
+    </script>
+
+    <script>
+        function onPrimeCheckClick() {
+            var intNumber = jsConsole.readInteger("#numberField");
+            var isPrime = true;
+
+            if (intNumber < 2)
+            {
+                jsConsole.writeLine("Numbers smaller than 2 are not prime.");
+                isPrime = false;
+            }
+            else
+            {
+                for (var i = 2; i < intNumber; i++)
+                {
+                    if (intNumber % i == 0)
+                    {
+                        isPrime = false;
+                    }
+                }
+            }
+               
+            if( isPrime == true)
+            {
+                jsConsole.writeLine("Number " + intNumber + " IS prime.");
+            }
+            else
+            {
+                jsConsole.writeLine("Number " + intNumber + " is NOT prime.");
+            }
+        }	
+    </script>
+</body>
+</html>
