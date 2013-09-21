@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Divs in circular motion</title>
+    <style>
+        .circle {
+			width: 50px;
+			height: 50px;
+            position: absolute;
+            border: 5px solid red;
+            border-radius: 100%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var numberOfCircles = 5;
+        var allCircles = [];
+
+        for (var i = 0; i < numberOfCircles; i++) {
+            var circle = document.createElement('div');
+            circle.className = 'circle';
+            allCircles.push(circle);
+            document.body.appendChild(circle);
+        }
+
+        var angle = 0;
+        var deg2rad = function (a) { 
+			'use strict'; 
+			return a * Math.PI / 180.0; 
+		};
+
+        !function loop() {
+            'use strict';
+
+            for (var i = 0; i < numberOfCircles; i++) {
+
+                var a = angle + (i * 360 / numberOfCircles);
+                allCircles[i].style.left = (Math.cos(deg2rad(a))) * 100 + 'px';
+                allCircles[i].style.top = (Math.sin(deg2rad(a))) * 100 + 'px';
+                allCircles[i].style.marginLeft = screen.width / 2 + 'px';
+                allCircles[i].style.marginTop = screen.height / 3 + 'px';
+
+            }
+            var speed = 5;
+            angle = angle + speed ;
+            setTimeout(loop, 100);
+        }();
+    </script>
+</body>
+</html>

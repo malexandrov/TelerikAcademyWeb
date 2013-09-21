@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>JS Console - Example</title>
+    <style>
+        .button {
+            top: -10px;
+            font-family:  Calibri;
+            color: black;
+            width:50px;
+            height:50px;
+            border-radius:25px;
+            border-width:2px;
+            border-style:solid;
+            border-color: black;
+            background: white;
+            font-size:24px;
+        }
+        #leftButton {
+            position:absolute;
+            left:10px;
+            top:200px;
+        }
+        #rightButton {
+            position:absolute;
+            left:540px;
+            top:200px;
+        }
+        #imageWrapper {
+            width: 600px;
+            height:450px;
+            background-color:green;
+            position:relative;
+            left:300px;
+            top:50px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="imageWrapper">
+            <img id="carouselImage" src="http://pages.swcp.com/~jamii/OtherCats/coco.jpg" alt="img1" width="600px" height="450px"/>
+            <button id="leftButton" class="button" onclick="onLeftClick()"><</button>
+            <button id="rightButton" class="button" onclick="onRightClick()">></button>
+        </div>
+    </div>
+    <div id="Div1">
+    </div>
+<script>
+    var images = [
+                    "http://pages.swcp.com/~jamii/OtherCats/coco.jpg",
+                    "http://1.bp.blogspot.com/-K1wTH_unIrs/TVaKrJkQ8lI/AAAAAAAAAVA/flBUUXkHFIo/s1600/cats_012.jpg",
+                    "http://ww2.hdnux.com/photos/17/63/14/4141833/3/960x595.jpg",
+                    "http://img.thesun.co.uk/multimedia/archive/01700/cat3_1700339a.jpg",
+                    "http://www.blogcdn.com/www.engadget.com/media/2013/03/deal-with-it-cat11.jpeg"];
+    var imagesIndex = 0;
+    var carouselImage = document.getElementById("carouselImage");
+    var intervalId = setInterval(function () { onLeftClick() }, 5000);
+
+    function onLeftClick() {
+        if (imagesIndex === images.length - 1) {
+            imagesIndex = 0;
+        }
+        else {
+            imagesIndex++;
+        }
+        carouselImage.src = images[imagesIndex];
+        clearInterval(intervalId);
+        intervalId = setInterval(function () { onLeftClick() }, 3000);
+
+    }
+    function onRightClick() {
+        if (imagesIndex === 0) {
+            imagesIndex = images.length - 1;
+        }
+        else {
+            imagesIndex--;
+        }
+        carouselImage.src = images[imagesIndex];
+        clearInterval(intervalId);
+        intervalId = setInterval(function () { onRightClick() }, 3000);
+    }
+</script>
+</body>
+</html>

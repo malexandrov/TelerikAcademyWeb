@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>DOM Manipulation - Altering HTML DIV elements' styles</title>
+	<style>
+		#wrapper, body, html {
+			min-height: 100%;
+			background: #ccc;
+		}
+
+		.random-div {
+			width: 40px;
+			height: 40px;
+			border-radius: 15px;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+	</div>
+	<script>
+		var wrapper = document.getElementById("wrapper");
+		var count = parseInt(Math.random() * 100)
+		var divs = document.getElementsByClassName("random-div");
+		var maxWidth = screen.width - 10;
+		var maxHeight = screen.height - 100;
+
+		generateRandomDivs(count);
+
+		function generateRandomDivs(count) {
+
+			for (var i = 0; i < count; i++) {
+				var randomDiv = document.createElement("div");
+				randomDiv.classList.add("random-div");
+				makeDivStyle(randomDiv);
+				wrapper.appendChild(randomDiv);
+			}
+		}
+
+		function makeDivStyle(randomDiv) {
+		    randomDiv.style.position = "absolute";
+		    var topPos = parseInt(Math.random() * (maxHeight - 40));
+			randomDiv.style.top = topPos + "px";
+			var left = parseInt(Math.random() * (maxWidth - 40));
+			randomDiv.style.left = left + "px";
+
+			var divWidth = parseInt(generateRandomInterval(20, 100));
+			randomDiv.style.width = divWidth + "px";
+			var divHeight = parseInt(generateRandomInterval(20, 100));
+			randomDiv.style.height = divHeight + "px";
+
+			randomDiv.innerHTML = '<strong>div</strong>';
+			randomDiv.style.color = generateRandomColor();
+			randomDiv.style.backgroundColor = generateRandomColor();
+
+			randomDiv.style.borderStyle = 'solid';
+			var borderWidth = parseInt(generateRandomInterval(1, 20));
+			randomDiv.style.borderWidth = borderWidth + "px";
+			var borderRadius = parseInt(generateRandomInterval(1, 30));
+			randomDiv.style.borderRadius = borderRadius + "px";
+			randomDiv.style.borderColor = generateRandomColor();
+
+		}
+
+		function generateRandomColor() {
+			var red = (Math.random() * 256) | 0;
+			var green = (Math.random() * 256) | 0;
+			var blue = (Math.random() * 256) | 0;
+
+			return "rgb(" + red + "," + green + "," + blue + ")";
+		}
+
+		function generateRandomInterval(from, to){
+		    return Math.floor(Math.random() * (to - from + 1) + from);
+		}
+
+	</script>
+</body>
+</html>

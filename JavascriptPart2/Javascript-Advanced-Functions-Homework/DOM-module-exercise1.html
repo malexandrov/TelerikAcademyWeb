@@ -1,0 +1,125 @@
+        <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JS Advanced functions - DOM module example</title>
+    <style>
+        #main-nav ul li{
+            list-style: none;
+            border: 1px solid black;
+            display: inline-block;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav id="main-nav">
+        <ul>
+            <li><a class="button">Navigation 1</a></li>
+            <li><a class="button">Navigation 2</a></li>
+            <li><a class="button">Navigation 3</a></li>
+        </ul>
+    </nav>
+
+    <div id="wrapper">
+        <ul>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+        </ul>
+    </div>    
+    <script>
+
+        var domModule = (function () {
+            var ELEMENTS_BUFFER_SIZE = 100;
+            var bufferElements = [];
+
+            function getElement(selector) {
+                return document.querySelector(selector);
+            }
+
+            function getElements(selector) {
+                return document.querySelectorAll(selector);
+            }
+
+            function appendChild(child, selector) {
+                var parent = getElement(selector);
+                parent.appendChild(child);
+            }
+
+            function removeChild(parent, selector) {
+                var removeElements = getElements(parent + " " + selector);
+                for (var i = 0; i < removeElements.length; i++) {
+                    element = removeElements[i].parentNode;
+                    element.removeChild(removeElements[i]);
+                }
+            }
+
+            function addHandler(selector, eventType, eventHandler) {
+                var elements = getElements(selector);
+                for (var i = 0; i < elements.length; i++) {
+                    if (elements[i].addEventListener) {
+                        elements[i].addEventListener(eventType, eventHandler, false);
+                    } else {
+                        element[i].attachEvent("on" + eventType, eventHandler);
+                    }
+
+                }
+            }
+
+            function appendToBuffer(selector, element) {
+                if (!bufferElements[selector]) {
+                    bufferElements[selector] = document.createDocumentFragment();
+                }
+                bufferElements[selector].appendChild(element);
+                if (bufferElements[selector].childNodes.length == ELEMENTS_BUFFER_SIZE) {
+                    var parent = getElement(selector);
+                    parent.appendChild(bufferElements[selector]);
+                    bufferElements[selector] = null;
+                }
+            }
+
+            function appendAllBufferElemends() {
+                for (var item in bufferElements) {
+                    var parent = getElement(item);
+                    parent.appendChild(bufferElements[item]);
+                    bufferElements[item] = null;
+                }
+            }
+
+            return {
+                getElement: getElement,
+                getElements: getElements,
+                appendChild: appendChild,
+                removeChild: removeChild,
+                addHandler: addHandler,
+                appendToBuffer: appendToBuffer,
+                appendAllBufferElemends: appendAllBufferElemends
+            };
+        }());
+
+        // Demo for the exercise. Creating elements to be added
+        var div = document.createElement("div");
+        div.innerHTML ="New div item";
+        var navItem = document.createElement("li");
+        navItem.innerHTML ="New nav item";
+
+        domModule.appendChild(div, "#wrapper");
+        domModule.appendChild(navItem, "#main-nav ul");
+
+        domModule.removeChild("ul","li:first-child"); 
+
+        // Appending elements from buffer - using cloned elements above
+        domModule.appendToBuffer("#wrapper", div.cloneNode(true));
+        domModule.appendToBuffer("#wrapper", div.cloneNode(true));
+
+        domModule.appendToBuffer("#main-nav ul", navItem.cloneNode(true));
+        domModule.appendToBuffer("#main-nav ul", navItem.cloneNode(true));
+
+        domModule.appendAllBufferElemends()
+        
+        domModule.addHandler("a.button", 'click', function () { alert("Added event click!")});
+
+    </script>
+</body>
+</html>
